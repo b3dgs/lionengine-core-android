@@ -16,6 +16,7 @@ out/
 # Gradle files
 .gradle/
 build/
+gradle/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -37,6 +38,10 @@ captures/
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/runConfigurations.xml
 .idea/dictionaries
 .idea/libraries
 

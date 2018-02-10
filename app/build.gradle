@@ -1,0 +1,16 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 24
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compile 'com.b3dgs.lionengine:lionengine-core:9.0.0-SNAPSHOT'
+}
