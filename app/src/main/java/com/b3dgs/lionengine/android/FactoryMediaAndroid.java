@@ -15,21 +15,21 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android;
 
 import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.b3dgs.lionengine.Constant;
+import com.b3dgs.lionengine.FactoryMedia;
 import com.b3dgs.lionengine.Media;
-import com.b3dgs.lionengine.core.FactoryMedia;
-import com.b3dgs.lionengine.core.Medias;
-import com.b3dgs.lionengine.util.UtilFolder;
+import com.b3dgs.lionengine.Medias;
+import com.b3dgs.lionengine.UtilFolder;
 
 /**
  * Media factory implementation.
  */
-final class FactoryMediaAndroid implements FactoryMedia
+public final class FactoryMediaAndroid implements FactoryMedia
 {
     /** Asset manager. */
     private static volatile AssetManager assetManager;
@@ -41,7 +41,7 @@ final class FactoryMediaAndroid implements FactoryMedia
      * 
      * @param assetManager The asset manager.
      */
-    static synchronized void setAssertManager(AssetManager assetManager)
+    public static synchronized void setAssertManager(AssetManager assetManager)
     {
         FactoryMediaAndroid.assetManager = assetManager;
     }
@@ -51,15 +51,15 @@ final class FactoryMediaAndroid implements FactoryMedia
      * 
      * @param context The context reference.
      */
-    static synchronized void setContext(Context context)
+    public static synchronized void setContext(Context context)
     {
         FactoryMediaAndroid.context = context;
     }
 
     /**
-     * Internal constructor.
+     * Constructor.
      */
-    FactoryMediaAndroid()
+    public FactoryMediaAndroid()
     {
         super();
     }

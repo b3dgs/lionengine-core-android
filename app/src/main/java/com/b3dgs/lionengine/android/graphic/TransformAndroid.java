@@ -15,51 +15,63 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android.graphic;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.WindowManager;
-
-import com.b3dgs.lionengine.core.Engine;
+import com.b3dgs.lionengine.UtilConversion;
+import com.b3dgs.lionengine.graphic.Transform;
 
 /**
- * Activity base implementation for game.
+ * Transform implementation.
  */
-public abstract class ActivityGame extends Activity
+final class TransformAndroid implements Transform
 {
+    /** Scale x. */
+    private double sx;
+    /** Scale y. */
+    private double sy;
+    /** Interpolation. */
+    private int interpolation;
+
     /**
-     * Constructor.
+     * Internal constructor.
      */
-    public ActivityGame()
+    TransformAndroid()
     {
         super();
     }
 
-    /**
-     * Start the activity.
-     * 
-     * @param bundle The bundle reference.
-     */
-    protected abstract void start(Bundle bundle);
-
     /*
-     * Activity
+     * Transform
      */
 
     @Override
-    protected void onCreate(Bundle bundle)
+    public void scale(double sx, double sy)
     {
-        super.onCreate(bundle);
-
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        start(bundle);
+        this.sx = sx;
+        this.sy = sy;
     }
 
     @Override
-    public void finish()
+    public void setInterpolation(boolean bilinear)
     {
-        Engine.terminate();
-        super.finish();
+        interpolation = UtilConversion.boolToInt(bilinear);
+    }
+
+    @Override
+    public double getScaleX()
+    {
+        return sx;
+    }
+
+    @Override
+    public double getScaleY()
+    {
+        return sy;
+    }
+
+    @Override
+    public int getInterpolation()
+    {
+        return interpolation;
     }
 }

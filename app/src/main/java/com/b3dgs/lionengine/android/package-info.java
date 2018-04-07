@@ -17,6 +17,6 @@
  */
 
 /**
- * Android audio package.
+ * Android engine implementation package.
  */
-package com.b3dgs.lionengine.audio.android;
+package com.b3dgs.lionengine.android;

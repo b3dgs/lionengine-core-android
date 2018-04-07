@@ -15,51 +15,25 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.SurfaceView;
+import com.b3dgs.lionengine.Align;
+import com.b3dgs.lionengine.LionEngineException;
+import com.b3dgs.lionengine.audio.Audio;
 
 /**
- * Surface view implementation.
+ * Wav audio.
  */
-final class ViewAndroid extends SurfaceView
+public interface Wav extends Audio
 {
-    /** Mouse. */
-    private MouseAndroid mouse;
-
     /**
-     * Internal constructor.
+     * Play the audio.
+     * <p>
+     * The audio will be played from the beginning until the end.
+     * </p>
      * 
-     * @param context The context reference.
+     * @param alignment The sound alignment.
+     * @throws LionEngineException If unable to play sound.
      */
-    ViewAndroid(Context context)
-    {
-        super(context);
-    }
-
-    /**
-     * Set the mouse reference.
-     * 
-     * @param mouse The mouse reference.
-     */
-    void setMouse(MouseAndroid mouse)
-    {
-        this.mouse = mouse;
-    }
-
-    /*
-     * SurfaceView
-     */
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event)
-    {
-        if (mouse != null)
-        {
-            mouse.updateEvent(event);
-        }
-        return true;
-    }
+    void play(Align alignment);
 }

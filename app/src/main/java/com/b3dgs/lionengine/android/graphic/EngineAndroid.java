@@ -15,23 +15,25 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
-
-import java.io.File;
+package com.b3dgs.lionengine.android.graphic;
 
 import android.app.Activity;
 import android.util.DisplayMetrics;
 
 import com.b3dgs.lionengine.Check;
 import com.b3dgs.lionengine.Constant;
+import com.b3dgs.lionengine.Engine;
+import com.b3dgs.lionengine.FactoryMediaDefault;
 import com.b3dgs.lionengine.LionEngineException;
+import com.b3dgs.lionengine.Medias;
 import com.b3dgs.lionengine.Version;
+import com.b3dgs.lionengine.android.FactoryMediaAndroid;
+import com.b3dgs.lionengine.android.WavFormat;
 import com.b3dgs.lionengine.audio.AudioFactory;
-import com.b3dgs.lionengine.core.Engine;
-import com.b3dgs.lionengine.core.FactoryMediaDefault;
-import com.b3dgs.lionengine.core.Medias;
 import com.b3dgs.lionengine.geom.Rectangle;
 import com.b3dgs.lionengine.graphic.Graphics;
+
+import java.io.File;
 
 /**
  * Engine Android implementation.

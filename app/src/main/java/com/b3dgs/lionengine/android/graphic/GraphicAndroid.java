@@ -15,10 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.b3dgs.lionengine.android.graphic;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -37,6 +34,9 @@ import com.b3dgs.lionengine.graphic.ColorRgba;
 import com.b3dgs.lionengine.graphic.Graphic;
 import com.b3dgs.lionengine.graphic.ImageSurface;
 import com.b3dgs.lionengine.graphic.Transform;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Main interface with the graphic output, representing the screen buffer.

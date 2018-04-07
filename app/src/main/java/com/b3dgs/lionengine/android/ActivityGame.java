@@ -15,8 +15,51 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+package com.b3dgs.lionengine.android;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.WindowManager;
+
+import com.b3dgs.lionengine.Engine;
 
 /**
- * Android engine implementation package.
+ * Activity base implementation for game.
  */
-package com.b3dgs.lionengine.core.android;
+public abstract class ActivityGame extends Activity
+{
+    /**
+     * Constructor.
+     */
+    public ActivityGame()
+    {
+        super();
+    }
+
+    /**
+     * Start the activity.
+     * 
+     * @param bundle The bundle reference.
+     */
+    protected abstract void start(Bundle bundle);
+
+    /*
+     * Activity
+     */
+
+    @Override
+    protected void onCreate(Bundle bundle)
+    {
+        super.onCreate(bundle);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        start(bundle);
+    }
+
+    @Override
+    public void finish()
+    {
+        Engine.terminate();
+        super.finish();
+    }
+}

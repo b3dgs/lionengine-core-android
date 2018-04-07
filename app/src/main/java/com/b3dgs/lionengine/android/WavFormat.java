@@ -15,40 +15,52 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.io.android;
+package com.b3dgs.lionengine.android;
 
-import com.b3dgs.lionengine.io.InputDevicePointer;
+import com.b3dgs.lionengine.Media;
+import com.b3dgs.lionengine.audio.AudioFormat;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
- * Mouse input.
+ * Wav audio format implementation.
  */
-public interface Mouse extends InputDevicePointer
+public final class WavFormat implements AudioFormat
 {
-    /**
-     * Get location on screen x.
-     * 
-     * @return The location on screen x.
-     */
-    int getOnScreenX();
+    /** Audio extensions. */
+    private static final String[] FORMATS =
+    {
+        "wav", "wave"
+    };
 
     /**
-     * Get location on screen y.
-     * 
-     * @return The location on screen y.
+     * Create a wav format.
      */
-    int getOnScreenY();
+    public WavFormat()
+    {
+        super();
+    }
 
-    /**
-     * Get location on window x.
-     * 
-     * @return The location on window x.
+    /*
+     * AudioFormat
      */
-    int getOnWindowX();
 
-    /**
-     * Get location on window y.
-     * 
-     * @return The location on window y.
-     */
-    int getOnWindowY();
+    @Override
+    public Wav loadAudio(Media media)
+    {
+        return new WavImpl(media);
+    }
+
+    @Override
+    public Collection<String> getFormats()
+    {
+        return Arrays.asList(FORMATS);
+    }
+
+    @Override
+    public void close()
+    {
+        // Nothing to do
+    }
 }

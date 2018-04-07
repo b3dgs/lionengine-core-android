@@ -15,14 +15,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android.graphic;
 
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 
 import com.b3dgs.lionengine.Config;
-import com.b3dgs.lionengine.io.android.Mouse;
-import com.b3dgs.lionengine.util.UtilMath;
+import com.b3dgs.lionengine.UtilMath;
+import com.b3dgs.lionengine.android.Mouse;
 
 /**
  * Mouse input implementation.

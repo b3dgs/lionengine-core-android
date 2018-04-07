@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android.graphic;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -24,15 +24,15 @@ import android.view.SurfaceHolder;
 import com.b3dgs.lionengine.Config;
 import com.b3dgs.lionengine.InputDeviceKeyListener;
 import com.b3dgs.lionengine.Resolution;
+import com.b3dgs.lionengine.android.Mouse;
 import com.b3dgs.lionengine.geom.Rectangle;
-import com.b3dgs.lionengine.graphic.ScreenBase;
+import com.b3dgs.lionengine.graphic.ScreenAbstract;
 import com.b3dgs.lionengine.io.InputDevicePointer;
-import com.b3dgs.lionengine.io.android.Mouse;
 
 /**
  * Screen implementation.
  */
-public final class ScreenAndroid extends ScreenBase implements SurfaceHolder.Callback
+public final class ScreenAndroid extends ScreenAbstract implements SurfaceHolder.Callback
 {
     /** Max ready time in millisecond. */
     private static final long READY_TIMEOUT = 5000L;

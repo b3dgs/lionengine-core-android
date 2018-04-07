@@ -15,63 +15,51 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android.graphic;
 
-import com.b3dgs.lionengine.graphic.Transform;
-import com.b3dgs.lionengine.util.UtilConversion;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
 
 /**
- * Transform implementation.
+ * Surface view implementation.
  */
-final class TransformAndroid implements Transform
+final class ViewAndroid extends SurfaceView
 {
-    /** Scale x. */
-    private double sx;
-    /** Scale y. */
-    private double sy;
-    /** Interpolation. */
-    private int interpolation;
+    /** Mouse. */
+    private MouseAndroid mouse;
 
     /**
      * Internal constructor.
+     * 
+     * @param context The context reference.
      */
-    TransformAndroid()
+    ViewAndroid(Context context)
     {
-        super();
+        super(context);
+    }
+
+    /**
+     * Set the mouse reference.
+     * 
+     * @param mouse The mouse reference.
+     */
+    void setMouse(MouseAndroid mouse)
+    {
+        this.mouse = mouse;
     }
 
     /*
-     * Transform
+     * SurfaceView
      */
 
     @Override
-    public void scale(double sx, double sy)
+    public boolean onTouchEvent(MotionEvent event)
     {
-        this.sx = sx;
-        this.sy = sy;
-    }
-
-    @Override
-    public void setInterpolation(boolean bilinear)
-    {
-        interpolation = UtilConversion.boolToInt(bilinear);
-    }
-
-    @Override
-    public double getScaleX()
-    {
-        return sx;
-    }
-
-    @Override
-    public double getScaleY()
-    {
-        return sy;
-    }
-
-    @Override
-    public int getInterpolation()
-    {
-        return interpolation;
+        if (mouse != null)
+        {
+            mouse.updateEvent(event);
+        }
+        return true;
     }
 }

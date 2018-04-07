@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-package com.b3dgs.lionengine.core.android;
+package com.b3dgs.lionengine.android;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
@@ -25,10 +25,10 @@ import com.b3dgs.lionengine.Check;
 import com.b3dgs.lionengine.Constant;
 import com.b3dgs.lionengine.LionEngineException;
 import com.b3dgs.lionengine.Media;
+import com.b3dgs.lionengine.Medias;
+import com.b3dgs.lionengine.UtilFile;
+import com.b3dgs.lionengine.UtilFolder;
 import com.b3dgs.lionengine.Verbose;
-import com.b3dgs.lionengine.core.Medias;
-import com.b3dgs.lionengine.util.UtilFile;
-import com.b3dgs.lionengine.util.UtilFolder;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -217,7 +217,9 @@ final class MediaAndroid implements Media
             }
             catch (@SuppressWarnings("unused") final IOException exception2)
             {
-                throw new LionEngineException(exception, this, ERROR_GET_STREAM, Constant.QUOTE, path, Constant.QUOTE);
+                throw new LionEngineException(exception,
+                                              this,
+                                              ERROR_GET_STREAM + Constant.QUOTE + path + Constant.QUOTE);
             }
         }
     }
@@ -239,7 +241,7 @@ final class MediaAndroid implements Media
         }
         catch (final IOException exception)
         {
-            throw new LionEngineException(exception, this, ERROR_GET_STREAM, Constant.QUOTE, path, Constant.QUOTE);
+            throw new LionEngineException(exception, this, ERROR_GET_STREAM + Constant.QUOTE + path + Constant.QUOTE);
         }
     }
 

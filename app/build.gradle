@@ -1,16 +1,36 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
+
+project.group = 'com.b3dgs.lionengine'
 
 android {
     compileSdkVersion 24
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    }
+}
 
-repositories {
-    mavenLocal()
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            artifactId 'lionengine-core-android'
+            version '9.0.0-SNAPSHOT'
+        }
+    }
 }
 
 dependencies {
-    compile 'com.b3dgs.lionengine:lionengine-core:9.0.0-SNAPSHOT'
+    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.0-SNAPSHOT'
 }
