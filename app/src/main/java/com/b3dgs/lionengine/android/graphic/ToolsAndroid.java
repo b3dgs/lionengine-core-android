@@ -191,36 +191,20 @@ public final class ToolsAndroid
      * Get raster buffer from data.
      * 
      * @param image The image.
-     * @param fr The first red.
-     * @param fg The first green.
-     * @param fb The first blue.
-     * @param er The end red.
-     * @param eg The end green.
-     * @param eb The end blue.
-     * @param refSize The reference size.
+     * @param fr The factor red.
+     * @param fg The factor green.
+     * @param fb The factor blue.
      * @return The rastered image.
      */
-    public static Bitmap getRasterBuffer(Bitmap image, int fr, int fg, int fb, int er, int eg, int eb, int refSize)
+    public static Bitmap getRasterBuffer(Bitmap image, double fr, double fg, double fb)
     {
         final Bitmap raster = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
-
-        final int divisorRed = 0x010000;
-        final int divisorGreen = 0x000100;
-        final int divisorBlue = 0x000001;
-
-        final double sr = -((er - fr) / (double) divisorRed) / refSize;
-        final double sg = -((eg - fg) / (double) divisorGreen) / refSize;
-        final double sb = -((eb - fb) / (double) divisorBlue) / refSize;
 
         for (int i = 0; i < raster.getWidth(); i++)
         {
             for (int j = 0; j < raster.getHeight(); j++)
             {
-                final int r = (int) (sr * (j % refSize)) * divisorRed;
-                final int g = (int) (sg * (j % refSize)) * divisorGreen;
-                final int b = (int) (sb * (j % refSize)) * divisorBlue;
-
-                raster.setPixel(i, j, UtilColor.filterRgb(image.getPixel(i, j), fr + r, fg + g, fb + b));
+                raster.setPixel(i, j, UtilColor.multiplyRgb(image.getPixel(i, j), fr, fg, fb));
             }
         }
 

@@ -185,19 +185,15 @@ public final class UtilImage
      * Get raster buffer from data.
      * 
      * @param image The image.
-     * @param fr The first red.
-     * @param fg The first green.
-     * @param fb The first blue.
-     * @param er The end red.
-     * @param eg The end green.
-     * @param eb The end blue.
-     * @param refSize The reference size.
+     * @param fr The factor red.
+     * @param fg The factor green.
+     * @param fb The factor blue.
      * @return The rastered image.
      */
-    static ImageBuffer getRasterBuffer(ImageBuffer image, int fr, int fg, int fb, int er, int eg, int eb, int refSize)
+    static ImageBuffer getRasterBuffer(ImageBuffer image, double fr, double fg, double fb)
     {
         final Bitmap bitmap = image.getSurface();
-        return new ImageBufferAndroid(ToolsAndroid.getRasterBuffer(bitmap, fr, fg, fb, er, eg, eb, refSize));
+        return new ImageBufferAndroid(ToolsAndroid.getRasterBuffer(bitmap, fr, fg, fb));
     }
 
     /**

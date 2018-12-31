@@ -5,10 +5,24 @@ apply plugin: 'com.github.dcendents.android-maven'
 project.group = 'com.b3dgs.lionengine'
 
 android {
-    compileSdkVersion 24
+    signingConfigs {
+        app {
+            storeFile file(property('keystore'))
+            keyAlias property('keystore.alias')
+            keyPassword property('keystore.password')
+            storePassword property('keystore.storepassword')
+        }
+    }
+    
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
+    }
+    
+    defaultConfig {
+        minSdkVersion 26
     }
 }
 

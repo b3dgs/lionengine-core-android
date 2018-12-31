@@ -136,8 +136,8 @@ public final class FactoryGraphicAndroid implements FactoryGraphic
     }
 
     @Override
-    public ImageBuffer getRasterBuffer(ImageBuffer imageBuffer, int fr, int fg, int fb, int er, int eg, int eb, int ref)
+    public ImageBuffer getRasterBuffer(ImageBuffer imageBuffer, double fr, double fg, double fb)
     {
-        return UtilImage.getRasterBuffer(imageBuffer, fr, fg, fb, er, eg, eb, ref);
+        return UtilImage.getRasterBuffer(imageBuffer, fr, fg, fb);
     }
 }

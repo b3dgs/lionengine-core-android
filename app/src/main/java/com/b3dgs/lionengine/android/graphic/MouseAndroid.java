@@ -20,7 +20,7 @@ package com.b3dgs.lionengine.android.graphic;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 
-import com.b3dgs.lionengine.Config;
+import com.b3dgs.lionengine.Resolution;
 import com.b3dgs.lionengine.UtilMath;
 import com.b3dgs.lionengine.android.Mouse;
 
@@ -68,7 +68,7 @@ public final class MouseAndroid implements Mouse
     /**
      * Internal constructor.
      */
-    public MouseAndroid()
+    MouseAndroid()
     {
         super();
     }
@@ -85,7 +85,7 @@ public final class MouseAndroid implements Mouse
         {
             clickMove = CLICK_1;
         }
-        else if (clicks[CLICK_1] && clicks[CLICK_2])
+        else if (clicks[CLICK_1])
         {
             clickMove = CLICK_2;
         }
@@ -174,12 +174,12 @@ public final class MouseAndroid implements Mouse
      * 
      * @param width The screen width.
      * @param height The screen height.
-     * @param config The config reference.
+     * @param source The source reference.
      */
-    public void setConfig(int width, int height, Config config)
+    public void setConfig(int width, int height, Resolution source)
     {
-        xRatio = width / (double) config.getSource().getWidth();
-        yRatio = height / (double) config.getSource().getHeight();
+        xRatio = width / (double) source.getWidth();
+        yRatio = height / (double) source.getHeight();
     }
 
     /*
