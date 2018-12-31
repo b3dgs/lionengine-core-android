@@ -45,7 +45,7 @@ Steps to include the __LionEngine__ in your project:
 1. Download at least [Android Studio 3.0.0](https://developer.android.com/studio/index.html)
 2. Include all __LionEngine__ libraries you need for your project, following the tree dependency:
   * __lionengine-core__ _(minimum requirement)_
-    * __lionengine-core-android__ _(uses_ __Android 7.0__ _as graphic renderer, target for smartphones)_
+    * __lionengine-core-android__ _(uses_ __Android 8.0__ _as graphic renderer, target for smartphones)_
 3. You are now ready to use the __LionEngine__ in your project
 
 ## Getting Started
