@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 apply plugin: 'com.github.dcendents.android-maven'
+apply from: 'maven-push.gradle'
 
 project.group = 'com.b3dgs.lionengine'
 
@@ -9,18 +10,28 @@ android {
         app {
             storeFile file(property('keystore'))
             keyAlias property('keystore.alias')
-            keyPassword property('keystore.password')
-            storePassword property('keystore.storepassword')
+            keyPassword ''
+            storePassword ''
         }
     }
-    
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.app
+        }
+
+        debug {
+            debuggable true
+        }
+    }
+
     compileSdkVersion 26
     buildToolsVersion '28.0.3'
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
-    
+
     defaultConfig {
         minSdkVersion 26
     }
@@ -40,11 +51,11 @@ install {
     repositories.mavenInstaller {
         pom.project {
             artifactId 'lionengine-core-android'
-            version '9.0.0-SNAPSHOT'
+            version '9.0.0'
         }
     }
 }
 
 dependencies {
-    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.0-SNAPSHOT'
+    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.0'
 }
