@@ -10,30 +10,32 @@ android {
         app {
             storeFile file(property('keystore'))
             keyAlias property('keystore.alias')
-            keyPassword ''
-            storePassword ''
+            keyPassword property('keystore.password')
+            storePassword property('keystore.storepassword')
         }
     }
-
-    buildTypes {
-        release {
-            signingConfig signingConfigs.app
-        }
-
-        debug {
-            debuggable true
-        }
-    }
-
-    compileSdkVersion 26
+    compileSdkVersion 28
     buildToolsVersion '28.0.3'
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
-
     defaultConfig {
         minSdkVersion 26
+        targetSdkVersion 28
+        signingConfig signingConfigs.app
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.app
+        }
+        debug {
+            signingConfig signingConfigs.app
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    productFlavors {
     }
 }
 
