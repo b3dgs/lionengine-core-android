@@ -51,4 +51,20 @@ public interface Mouse extends InputDevicePointer
      * @return The location on window y.
      */
     int getOnWindowY();
+
+    /**
+     * Get location on window x.
+     *
+     * @param click The click id.
+     * @return The location on window x.
+     */
+    int getX(int click);
+
+    /**
+     * Get location on window y.
+     *
+     * @param click The click id.
+     * @return The location on window y.
+     */
+    int getY(int click);
 }

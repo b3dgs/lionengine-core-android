@@ -64,6 +64,8 @@ public final class MouseAndroid implements Mouse
     private int lastClickMove;
     /** Moved flag. */
     private boolean moved;
+    private boolean click1;
+    private boolean click2;
 
     /**
      * Internal constructor.
@@ -150,16 +152,34 @@ public final class MouseAndroid implements Mouse
     void updateEvent(MotionEvent event)
     {
         System.arraycopy(clicks, 0, clicksOld, 0, clicks.length);
+        int id = event.getActionIndex();
         switch (event.getActionMasked())
         {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
-                clicks[event.getActionIndex()] = false;
+                if (id == 0 && click1)
+                {
+                    click1 = false;
+                }
+                else if (id == 1 && click2 || id == 0 && click2)
+                {
+                    click2 = false;
+                    id = 1;
+                }
+                clicks[id] = false;
                 lastClick--;
                 break;
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_POINTER_DOWN:
-                clicks[event.getActionIndex()] = true;
+                clicks[id] = true;
+                if (id == 0)
+                {
+                    click1 = true;
+                }
+                else if (id == 1)
+                {
+                    click2 = true;
+                }
                 lastClick++;
                 break;
             default:
@@ -227,6 +247,18 @@ public final class MouseAndroid implements Mouse
     }
 
     @Override
+    public int getX(int click)
+    {
+        return (int) (x[click] / xRatio);
+    }
+
+    @Override
+    public int getY(int click)
+    {
+        return (int) (y[click] / yRatio);
+    }
+
+    @Override
     public int getMoveX()
     {
         return (int) mx;
@@ -247,21 +279,21 @@ public final class MouseAndroid implements Mouse
     @Override
     public boolean hasClicked(int click)
     {
-        if (!UtilMath.isBetween(click, 1, clicks.length))
+        if (!UtilMath.isBetween(click, 0, clicks.length - 1))
         {
             return false;
         }
-        return clicks[click - 1];
+        return clicks[click];
     }
 
     @Override
     public boolean hasClickedOnce(int click)
     {
-        if (!UtilMath.isBetween(click, 1, clicks.length))
+        if (!UtilMath.isBetween(click, 0, clicks.length - 1))
         {
             return false;
         }
-        return clicks[click - 1];
+        return clicks[click];
     }
 
     @Override
