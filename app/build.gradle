@@ -53,11 +53,11 @@ install {
     repositories.mavenInstaller {
         pom.project {
             artifactId 'lionengine-core-android'
-            version '9.0.2-SNAPSHOT'
+            version '9.0.2'
         }
     }
 }
 
 dependencies {
-    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.2-SNAPSHOT'
+    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.2'
 }
