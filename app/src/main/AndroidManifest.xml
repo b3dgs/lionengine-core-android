@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.b3dgs.lionengine.core.android"
-          android:versionCode="901"
-          android:versionName="9.0.1">
-
+    package="com.b3dgs.lionengine.core.android"
+    android:versionCode="902"
+    android:versionName="9.0.2">
+    
 </manifest>
