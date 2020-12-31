@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -138,5 +138,45 @@ public final class FactoryGraphicAndroid implements FactoryGraphic
     public ImageBuffer getRasterBuffer(ImageBuffer imageBuffer, double fr, double fg, double fb)
     {
         return UtilImage.getRasterBuffer(imageBuffer, fr, fg, fb);
+    }
+
+    @Override
+    public ImageBuffer[] getRasterBuffer(final ImageBuffer image, final ImageBuffer palette)
+    {
+        // TODO
+        return new ImageBuffer[0];
+    }
+
+    @Override
+    public ImageBuffer[] getRasterBufferOffset(final Media image,
+                                               final Media palette,
+                                               final Media raster,
+                                               final int offsets)
+    {
+        // TODO
+        return new ImageBuffer[0];
+    }
+
+    @Override
+    public ImageBuffer[] getRasterBufferSmooth(final ImageBuffer image,
+                                               final ImageBuffer palette,
+                                               final int fh,
+                                               final int fv)
+    {
+        // TODO
+        return new ImageBuffer[0];
+    }
+
+    @Override
+    public ImageBuffer[] getRasterBufferSmooth(final ImageBuffer image, final ImageBuffer palette, final int tileHeight)
+    {
+        // TODO
+        return new ImageBuffer[0];
+    }
+
+    @Override
+    public void generateTileset(final ImageBuffer[] images, final Media media)
+    {
+        // TODO
     }
 }

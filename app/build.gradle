@@ -14,11 +14,11 @@ android {
             storePassword property('keystore.storepassword')
         }
     }
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '29.0.3'
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 28
+        targetSdkVersion 30
         signingConfig signingConfigs.app
     }
     buildTypes {
@@ -45,7 +45,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
@@ -53,11 +53,11 @@ install {
     repositories.mavenInstaller {
         pom.project {
             artifactId 'lionengine-core-android'
-            version '9.0.2'
+            version '9.0.5-SNAPSHOT'
         }
     }
 }
 
 dependencies {
-    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.2'
+    implementation 'com.b3dgs.lionengine:lionengine-core:9.0.5-SNAPSHOT'
 }

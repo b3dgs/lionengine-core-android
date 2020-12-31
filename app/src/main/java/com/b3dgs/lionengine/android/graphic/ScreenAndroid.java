@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -22,11 +22,14 @@ import android.view.SurfaceHolder;
 
 import com.b3dgs.lionengine.Config;
 import com.b3dgs.lionengine.InputDeviceKeyListener;
+import com.b3dgs.lionengine.Media;
 import com.b3dgs.lionengine.Resolution;
 import com.b3dgs.lionengine.android.Mouse;
 import com.b3dgs.lionengine.geom.Rectangle;
 import com.b3dgs.lionengine.graphic.ScreenAbstract;
 import com.b3dgs.lionengine.io.InputDevicePointer;
+
+import java.util.Collection;
 
 /**
  * Screen implementation.
@@ -48,7 +51,7 @@ public final class ScreenAndroid extends ScreenAbstract implements SurfaceHolder
      * @param view The view holder.
      * @param size The display size.
      */
-    public static synchronized void setView(ViewAndroid view, Rectangle size)
+    static synchronized void setView(ViewAndroid view, Rectangle size)
     {
         ScreenAndroid.view = view;
         ScreenAndroid.size = size;
@@ -175,7 +178,7 @@ public final class ScreenAndroid extends ScreenAbstract implements SurfaceHolder
     }
 
     @Override
-    public void setIcon(String filename)
+    public void setIcons(Collection<Media> icons)
     {
         // Nothing to do
     }

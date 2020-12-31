@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -31,36 +31,22 @@ import com.b3dgs.lionengine.UtilFolder;
 public final class FactoryMediaAndroid implements FactoryMedia
 {
     /** Asset manager. */
-    private static volatile AssetManager assetManager;
+    private final AssetManager assetManager;
     /** Context reference. */
-    private static volatile Context context;
-
-    /**
-     * Set the asset manager.
-     * 
-     * @param assetManager The asset manager.
-     */
-    public static synchronized void setAssertManager(AssetManager assetManager)
-    {
-        FactoryMediaAndroid.assetManager = assetManager;
-    }
-
-    /**
-     * Set the context reference.
-     * 
-     * @param context The context reference.
-     */
-    public static synchronized void setContext(Context context)
-    {
-        FactoryMediaAndroid.context = context;
-    }
+    private final Context context;
 
     /**
      * Constructor.
+     *
+     * @param context The context reference.
+     * @param assetManager The asset manager.
      */
-    public FactoryMediaAndroid()
+    public FactoryMediaAndroid(Context context, AssetManager assetManager)
     {
         super();
+
+        this.context = context;
+        this.assetManager = assetManager;
     }
 
     /*

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -65,7 +65,7 @@ public final class UtilImage
         }
         catch (final IOException exception)
         {
-            throw new LionEngineException(exception, UtilImage.ERROR_IMAGE_READING);
+            throw new LionEngineException(exception, ERROR_IMAGE_READING);
         }
     }
 
@@ -171,12 +171,12 @@ public final class UtilImage
         {
             if (!ToolsAndroid.saveImage((Bitmap) image.getSurface(), output))
             {
-                throw new LionEngineException(UtilImage.ERROR_IMAGE_SAVE);
+                throw new LionEngineException(ERROR_IMAGE_SAVE);
             }
         }
         catch (final IOException exception)
         {
-            throw new LionEngineException(exception, UtilImage.ERROR_IMAGE_SAVE);
+            throw new LionEngineException(exception, ERROR_IMAGE_SAVE);
         }
     }
 

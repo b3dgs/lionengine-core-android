@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -41,7 +41,7 @@ public final class EngineAndroid extends Engine
 {
     /**
      * Start engine. Has to be called before anything and only one time, in the main.
-     * 
+     *
      * @param name The program name (must not be <code>null</code>).
      * @param version The program version (must not be <code>null</code>).
      * @param activity The activity reference (must not be <code>null</code>).
@@ -59,7 +59,7 @@ public final class EngineAndroid extends Engine
 
     /**
      * Create engine.
-     * 
+     *
      * @param name The program name (must not be <code>null</code>).
      * @param version The program version (must not be <code>null</code>).
      * @param activity The activity reference (must not be <code>null</code>).
@@ -89,12 +89,8 @@ public final class EngineAndroid extends Engine
         ScreenAndroid.setView(view, new Rectangle(0, 0, metrics.widthPixels, metrics.heightPixels));
         activity.setContentView(view);
 
-        FactoryMediaAndroid.setAssertManager(activity.getAssets());
-        FactoryMediaAndroid.setContext(activity.getBaseContext());
-
         AudioFactory.addFormat(new WavFormat());
-
-        Medias.setFactoryMedia(new FactoryMediaAndroid());
+        Medias.setFactoryMedia(new FactoryMediaAndroid(activity.getBaseContext(), activity.getAssets()));
         Medias.setResourcesDirectory(activity.getPackageName().replace(Constant.DOT, File.separator));
         Graphics.setFactoryGraphic(new FactoryGraphicAndroid());
     }
@@ -102,9 +98,6 @@ public final class EngineAndroid extends Engine
     @Override
     protected void close()
     {
-        FactoryMediaAndroid.setAssertManager(null);
-        FactoryMediaAndroid.setContext(null);
-
         Medias.setFactoryMedia(new FactoryMediaDefault());
         Graphics.setFactoryGraphic(null);
         AudioFactory.clearFormats();

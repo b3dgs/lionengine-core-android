@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -35,6 +35,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -176,6 +178,20 @@ final class MediaAndroid implements Media
             return new File(getPathAbsolute());
         }
         return new File(getPathTemp());
+    }
+
+    @Override
+    public URL getUrl()
+    {
+        try
+        {
+            return getFile().toURI().toURL();
+        }
+        catch (MalformedURLException exception)
+        {
+           Verbose.exception(exception);
+           return null;
+        }
     }
 
     @Override

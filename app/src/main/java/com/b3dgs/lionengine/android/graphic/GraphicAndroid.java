@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
+ * Copyright (C) 2013-2020 Byron 3D Games Studio (www.b3dgs.com) Pierre-Alexandre (contact@b3dgs.com)
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -137,6 +137,23 @@ final class GraphicAndroid implements Graphic
 
     @Override
     public void drawImage(ImageSurface image, int dx1, int dy1, int dx2, int dy2, int sx1, int sy1, int sx2, int sy2)
+    {
+        drawImage(image, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, 0, 0, 0);
+    }
+
+    @Override
+    public void drawImage(ImageSurface image,
+                          int dx1,
+                          int dy1,
+                          int dx2,
+                          int dy2,
+                          int sx1,
+                          int sy1,
+                          int sx2,
+                          int sy2,
+                          int angle,
+                          int angleX,
+                          int angleY)
     {
         paint.setAlpha(255);
 
