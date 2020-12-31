@@ -53,7 +53,7 @@ install {
     repositories.mavenInstaller {
         pom.project {
             artifactId 'lionengine-core-android'
-            version '9.0.5-SNAPSHOT'
+            version '9.0.5'
         }
     }
 }
