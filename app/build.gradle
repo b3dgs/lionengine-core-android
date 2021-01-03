@@ -59,5 +59,6 @@ install {
 }
 
 dependencies {
+    implementation 'com.b3dgs:b3dgs-parent:2.0.0-SNAPSHOT'
     implementation 'com.b3dgs.lionengine:lionengine-core:10.0.0-SNAPSHOT'
 }
